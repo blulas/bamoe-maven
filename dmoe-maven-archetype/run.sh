@@ -13,4 +13,5 @@ mvn archetype:generate -B "-DarchetypeGroupId=com.ibm.bamoe.maven" "-DarchetypeA
   "-DprojectName=$1" \
   "-DartifactId=$1" \
   "-DuseDMN=true" \
-  "-DuseDRL=true"
+  "-DuseDRL=true" \
+  "-DuseBPMN=true"

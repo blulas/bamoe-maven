@@ -60,7 +60,7 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-  
+
 	<dependencies>
 #if (${useILMT} == 'true')
 		<!-- IBM License Service (ILMT) Support -->
@@ -68,51 +68,92 @@
 			<groupId>com.ibm.bamoe</groupId>
 			<artifactId>${licenseArtifactId}</artifactId>
 		</dependency>
-
 #end
-		<dependency>
-			<groupId>org.kie.kogito</groupId>
-			<artifactId>kogito-quarkus</artifactId>
-		</dependency>
 #if (${useDMN} == 'true')
 
+		<!-- Decision Modeling & Notation (DMN) -->
 		<dependency>
 			<groupId>org.kie.kogito</groupId>
 			<artifactId>kogito-quarkus-decisions</artifactId>
 		</dependency>
-#end
-#if (${useDRL} == 'true')
 
 		<dependency>
 			<groupId>org.kie.kogito</groupId>
-			<artifactId>kogito-quarkus-rules</artifactId>
-		</dependency>
-#end
-
-		<!-- Kogito Extensions -->
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-smallrye-openapi</artifactId>
+			<artifactId>kogito-scenario-simulation</artifactId>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-smallrye-health</artifactId>
 		</dependency>
+#end
+#if (${useDRL} == 'true')
+
+		<!-- Drools Rule Language (DRL) -->
+		<dependency>
+			<groupId>org.kie.kogito</groupId>
+			<artifactId>kogito-quarkus-rules</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-resteasy-reactive-jackson</artifactId>
+			<artifactId>quarkus-smallrye-openapi</artifactId>
+		</dependency>
+#end
+#if (${useBPMN} == 'true')
+
+		<!-- Business Process Modeling Notation (BPMN) -->
+		<dependency>
+			<groupId>org.kie.kogito</groupId>
+			<artifactId>kogito-quarkus</artifactId>
+		</dependency>
+	#if (${useDRL} == 'false')
+
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-smallrye-openapi</artifactId>
+		</dependency>
+	#end
+
+		<dependency>
+			<groupId>org.kie.kogito</groupId>
+			<artifactId>kogito-addons-quarkus-process-svg</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.kie.kogito</groupId>
+			<artifactId>kruntime-tools-quarkus-extension</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.kie.kogito</groupId>
+			<artifactId>kogito-addons-quarkus-data-index-inmemory</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.kie.kogito</groupId>
+			<artifactId>kogito-addons-quarkus-jobs-service-embedded</artifactId>
+			<scope>provided</scope>
+		</dependency>
+#end
+
+		<!-- Common Dependencies -->
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-resteasy</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-resteasy-jackson</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-arc</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-resteasy-reactive</artifactId>
 		</dependency>
 
 		<dependency>

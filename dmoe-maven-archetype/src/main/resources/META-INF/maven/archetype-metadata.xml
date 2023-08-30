@@ -63,18 +63,15 @@
 		</fileSet>
 
 		<!-- This folder contains the docker files for the project -->
-		<!--
 		<fileSet filtered="true" packaged="false" encoding="UTF-8">
 			<directory>src/main/docker</directory>
 			<includes>
 				<include>**/*.jvm</include>
-				<include>**/*.legacy-jar</include>
 				<include>**/*.native</include>
 				<include>**/*.native-micro</include>
 				<include>.gitkeep</include>
 			</includes>
 		</fileSet>
-		-->
 	</fileSets>
 
 	<!-- These properties are required -->
@@ -103,12 +100,16 @@
 			<defaultValue>jar</defaultValue>
 		</requiredProperty>
 
+		<requiredProperty key="useBPMN">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+
 		<requiredProperty key="useDMN">
 			<defaultValue>true</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="useDRL">
-			<defaultValue>true</defaultValue>
+			<defaultValue>false</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="useILMT">

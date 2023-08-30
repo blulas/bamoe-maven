@@ -48,6 +48,7 @@ The command above represents the minimal set of properties for the archetype. Th
 | artifactId | String | Maven artifactId for generated project | untitled | No |
 | version | String | Maven version for generated project | 1.0.0-SNAPSHOT | No |
 | packaging | String | Maven build package target | jar | No |
+| useBPMN | Boolean | Flag to indicate that BPMN is being used in this project | true | No |
 | useDMN | Boolean | Flag to indicate that DMN is being used in this project | true | No |
 | useDRL | Boolean | Flag to indicate that DLR is being used in this project | true | No |
 | useILMT | Boolean | Flag to indicate that IBM License Service is being used in this project | true | No |
