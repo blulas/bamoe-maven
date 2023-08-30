@@ -13,7 +13,7 @@ This repository is built using `mvn clean install (deploy)` by either the CI/CD 
 This repository is simply packaged as a JAR file and stored in the application's enterprise Maven repository.
 
 ## Additional Information (*Appendicies*)
-This repository is focused on business automation using [**IBM Business Automation Manager Open Editions**](https://www.ibm.com/docs/en/ibamoe/9.0.0?topic=introduction-what-is-bamoe) products, specifically the IBM build of [**Kogito**](https://kogito.kie.org/) known as **IBM Process Automation Manager Open Edition**, leveraging [**Quarkus**](https://quarkus.io/) as the assoicated container runtime.  The following online documentation is available in order to learn various aspects of these products and frameworks:
+This repository is focused on business automation using [**IBM Business Automation Manager Open Editions**](https://www.ibm.com/docs/en/ibamoe/9.0.0?topic=introduction-what-is-bamoe) products, specifically the IBM build of [**Kogito**](https://kogito.kie.org/) known as **IBM Decison Manager Open Edition**, leveraging [**Quarkus**](https://quarkus.io/) as the assoicated container runtime.  The following online documentation is available in order to learn various aspects of these products and frameworks:
 
 - [**Apache Maven**](https://maven.apache.org/) is a free and open source software project management and comprehension tool. Based on  the concept of a project object model (POM), Maven can manage a project’s build, reporting and documentation from a central piece of  information. A **getting started guide** is available [here](http://maven.apache.org/guides/getting-started/).
 
