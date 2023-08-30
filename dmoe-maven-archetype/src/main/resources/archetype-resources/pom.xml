@@ -123,7 +123,7 @@
 
 		<dependency>
 			<groupId>org.kie.kogito</groupId>
-			<artifactId>kruntime-tools-quarkus-extension</artifactId>
+			<artifactId>runtime-tools-quarkus-extension</artifactId>
 			<scope>provided</scope>
 		</dependency>
 
