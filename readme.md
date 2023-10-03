@@ -12,6 +12,7 @@ This is a multi-module repository, with the following modules:
 
 - [**Decision Manager Open Edition (DMOE) Maven Archetype**](./dmoe-maven-archetype) is a [**Maven Archetype**](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) that can create a decision service Maven project. 
 - [**Process Automation Manager Open Edition (PAMOE) Decision Manager Open Edition Maven Archetype**](./pamoe-maven-archetype) is a [**Maven Archetype**](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) that can create a process service Maven project. 
+- [**Business Automation Manager Open Edition (BAMOE) - Fact Model Maven Archetype**](./bamoe-fact-model-maven-archetype) is a [**Maven Archetype**](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) that can create a fact model library Maven project. 
 
 ## Additional Information (*Appendicies*)
 This repository is focused on business automation using [**IBM Business Automation Manager Open Editions**](https://www.ibm.com/docs/en/ibamoe/9.0.0?topic=introduction-what-is-bamoe) products, specifically the IBM build of [**Kogito**](https://kogito.kie.org/) known as **IBM Decision Manager Open Edition (DMOE)** and **IBM Process Automation Manager Open Edition (PAMOE)**, leveraging [**Quarkus**](https://quarkus.io/) as the assoicated container runtime.  The following online documentation is available in order to learn various aspects of these products and frameworks:
