@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor xsi:schemaLocation="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 http://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd" name="barry-project-1" xmlns="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  	<fileSets>
+		<!-- This is the root folder for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory></directory>
+			<includes>
+				<include>readme.md</include>
+				<include>pom.xml</include>
+			</includes>
+		</fileSet>
+
+		<fileSet filtered="false" packaged="false" encoding="UTF-8">
+			<directory>./</directory>
+			<includes>
+                <include>.gitignore</include>
+			</includes>
+		</fileSet>
+
+		<!-- This folder contains the Java source files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>src/main/java</directory>
+			<includes>
+				<include>**/*.java</include>
+				<include>**/**</include>
+				<include>.gitkeep</include>
+			</includes>
+		</fileSet>
+
+		<!-- This folder contains the resource files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>src/main/resources</directory>
+			<includes>
+				<include>**/*.properties</include>
+				<include>**/*.xml</include>
+				<include>.gitkeep</include>
+			</includes>
+		</fileSet>
+
+		<!-- This folder contains the Java test ource files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>src/test/java</directory>
+			<includes>
+				<include>**/*.java</include>
+				<include>**/*.properties</include>
+				<include>.gitkeep</include>
+			</includes>
+		</fileSet>
+
+		<!-- This folder contains the test resource files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>src/test/resources</directory>
+			<includes>
+				<include>**/*.properties</include>
+				<include>**/*.xml</include>
+				<include>**/*.feature</include>
+				<include>.gitkeep</include>
+			</includes>
+		</fileSet>
+
+		<!-- This folder contains the docker files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>src/main/docker</directory>
+			<includes>
+				<include>**/*.jvm</include>
+				<include>**/*.native</include>
+				<include>**/*.native-micro</include>
+				<include>.gitkeep</include>
+			</includes>
+		</fileSet>
+	</fileSets>
+
+	<!-- These properties are required -->
+	<requiredProperties>
+		<requiredProperty key="projectName">
+			<defaultValue>untitled</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="projectDescription">
+			<defaultValue>Fact Model</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="groupId">
+			<defaultValue>com.ibm.bamoe</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="artifactId">
+			<defaultValue>untitled</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="version">
+			<defaultValue>1.0.0-SNAPSHOT</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="packaging">
+			<defaultValue>jar</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="package">
+			<defaultValue>com.sample</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="sampleClassName">
+			<defaultValue>Sample</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="mavenCompilerPluginVersion">
+			<defaultValue>3.10.1</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="mavenSurefirePluginVersion">
+			<defaultValue>3.0.0-M7</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="javaVersion">
+			<defaultValue>11</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="sourceEncoding">
+			<defaultValue>UTF-8</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="outputEncoding">
+			<defaultValue>UTF-8</defaultValue>
+		</requiredProperty>
+	</requiredProperties>
+</archetype-descriptor>
