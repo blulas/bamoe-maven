@@ -7,6 +7,6 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>bamoe-fact-model-maven-archetype</artifactId>
+	<artifactId>fact-model-maven-archetype</artifactId>
 	<version>1.0.0</version>
 </project>
