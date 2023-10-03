@@ -6,7 +6,7 @@ This repository contains a custom [**Maven Archetype**](https://maven.apache.org
 
 In short, Archetype is a Maven project template generation toolkit. An archetype is defined as an original pattern or model from which all other things of the same kind are made. The name fits as we are trying to provide a system that provides a consistent means of generating Maven projects, specifically, Kogito Decision Service projects. The archetype will help authors create Maven project templates for users, and provides users with the means to generate parameterized versions of those project templates.
 
-The `IBM Decision Manager Open Edition - Fact Model Maven Archetype` produces a standard data object _(aka fact model)_ project structure, complete with a properly configured project `pom.xml` as well as including all of the core dependencies and build targets for a project using these types of artifacts, so that these data objects can be referened as Maven dependency in a decision or process service.  
+The `IBM Decision Manager Open Edition - Fact Model Maven Archetype` produces a standard fact model _(aka data model)_ project structure, complete with a properly configured project `pom.xml` as well as including all of the core dependencies and build targets for a project using these types of artifacts, so that these data objects can be referened as Maven dependency in a decision or process service.  
 
 ## Getting Started
 
