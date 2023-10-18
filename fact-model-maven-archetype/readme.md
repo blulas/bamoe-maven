@@ -20,7 +20,7 @@ Upon successful execution of the archetype, a directory will be created for your
 
 ## Building the Project
 
-In order to build the project you must run the following command `mvn clean deploy`, which will build the project and store it in the enterprise artifact repository as well as the local .m2 cache. 
+In order to build the project you must run the following command `mvn clean install`, which will build the project and store it in the enterprise artifact repository as well as the local .m2 cache. 
 
 ## Using the Archetype
 
@@ -30,7 +30,7 @@ This custom Maven archetype can be run from the developer workstation, build ser
 
 Once the archetype has been built and installed into the enterprise artifact repository, navigate to the project folder for which you would like to create the new project, and run the following command (replacing the properties with the appropriate project value):
 
-`mvn archetype:generate -B -DarchetypeGroupId=com.ibm.bamoe.maven -DarchetypeArtifactId=bamoe-fact-model-maven-archetype -DarchetypeVersion=1.0.0-SNAPSHOT -DprojectName=<project name> -DartifactId=<project artifact id>`
+`mvn archetype:generate -B -DarchetypeGroupId=com.ibm.bamoe.maven -DarchetypeArtifactId=bamoe-fact-model-maven-archetype -DarchetypeVersion=1.0.0 -DprojectName=<project name> -DartifactId=<project artifact id>`
 
 ### Archetype Parameters
 
