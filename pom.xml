@@ -10,9 +10,11 @@
 	<modules>
 		<module>fact-model-maven-archetype</module>
 		<module>dmoe-maven-archetype</module>
+<!--
 		<module>pamoe-maven-archetype</module>
 		<module>dmoe-legacy-maven-archetype</module>
 		<module>pamoe-legacy-maven-archetype</module>
+-->
 	</modules>
 
 	<properties>
