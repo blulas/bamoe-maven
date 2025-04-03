@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor xsi:schemaLocation="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 http://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd" name="barry-project-1" xmlns="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  	<fileSets>
+		<!-- This is the root folder for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory></directory>
+			<includes>
+				<include>README.MD</include>
+				<include>LICENSE</include>
+				<include>pom.xml</include>
+			</includes>
+		</fileSet>
+
+		<fileSet filtered="false" packaged="false" encoding="UTF-8">
+			<directory>./</directory>
+			<includes>
+                <include>.gitignore</include>
+			</includes>
+		</fileSet>
+
+		<!-- This folder contains the Java source files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>src/main/java</directory>
+			<includes>
+				<include>**/*.java</include>
+				<include>.gitkeep</include>
+			</includes>
+		</fileSet>
+
+		<!-- This folder contains the resource files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>src/main/resources</directory>
+			<includes>
+				<include>**/*.properties</include>
+				<include>**/*.bpmn</include>
+				<include>**/*.bpmn2</include>
+				<include>**/*.drl</include>
+				<include>**/*.dmn</include>
+				<include>**/*.scesim</include>
+				<include>**/*.xml</include>
+				<include>.gitkeep</include>
+			</includes>
+		</fileSet>
+
+		<!-- This folder contains the Java test ource files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>src/test/java</directory>
+			<includes>
+				<include>**/*.java</include>
+				<include>.gitkeep</include>
+			</includes>
+		</fileSet>
+
+		<!-- This folder contains the test resource files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>src/test/resources</directory>
+			<includes>
+				<include>**/*.properties</include>
+				<include>**/*.xml</include>
+				<include>**/*.scesim</include>
+				<include>**/*.feature</include>
+				<include>.gitkeep</include>
+			</includes>
+		</fileSet>
+
+		<!-- This folder contains the docker files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>src/main/docker</directory>
+			<includes>
+				<include>**/*.jvm</include>
+				<include>**/*.native</include>
+				<include>**/*.native-micro</include>
+				<include>.gitkeep</include>
+			</includes>
+		</fileSet>
+	</fileSets>
+
+	<!-- These properties are required -->
+	<requiredProperties>
+		<requiredProperty key="projectName">
+			<defaultValue>untitled</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="projectDescription">
+			<defaultValue>Stateful Process Service</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="groupId">
+			<defaultValue>com.ibm.bamoe</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="artifactId">
+			<defaultValue>untitled</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="version">
+			<defaultValue>1.0.0-SNAPSHOT</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="packaging">
+			<defaultValue>jar</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="useDMN">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="useDRL">
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="useILMT">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="licenseArtifactId">
+			<defaultValue>bamoe-ilmt-compliance-quarkus-pamoe</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="skipTests">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="runtimeGroupId">
+			<defaultValue>io.quarkus</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="runtimeArtifactId">
+			<defaultValue>quarkus-bom</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="runtimeVersion">
+			<defaultValue>3.8.6</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="runtimePlugin">
+			<defaultValue>quarkus-maven-plugin</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="bamoeGroupId">
+			<defaultValue>com.ibm.bamoe</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="bamoeArtifactId">
+			<defaultValue>bamoe-bom</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="bamoeVersion">
+			<defaultValue>9.1.1-ibm-0003</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="mavenCompilerPluginVersion">
+			<defaultValue>3.10.1</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="mavenCompilerParameters">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="mavenResourcesPluginVersion">
+			<defaultValue>3.2.0</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="mavenSurefirePluginVersion">
+			<defaultValue>3.0.0-M7</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="javaVersion">
+			<defaultValue>17</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="sourceEncoding">
+			<defaultValue>UTF-8</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="outputEncoding">
+			<defaultValue>UTF-8</defaultValue>
+		</requiredProperty>
+
+		<!-- Development Profile -->
+		<requiredProperty key="port">
+			<defaultValue>8080</defaultValue>
+		</requiredProperty>
+
+		<!-- Logging -->
+		<requiredProperty key="quarkusLogLevel">
+			<defaultValue>WARN</defaultValue>
+		</requiredProperty>
+
+		<!-- Swagger -->
+		<requiredProperty key="swaggerEnabled">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+
+		<!-- Services -->
+		<requiredProperty key="devQuarkusServicesEnabled">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="devKogitoServicesEnabled">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="kogitoServiceURL">
+			<defaultValue>http://localhost:${quarkus.http.port}</defaultValue>
+		</requiredProperty>
+
+		<!-- OIDC -->
+		<requiredProperty key="oidcEnabled">
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="oidcDiscoveryEnabled">
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="oidcTenantEnabled">
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="oidcClientId">
+			<defaultValue>bamoe</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="oidcAuthServerURL">
+			<defaultValue>http://127.0.0.1:8180/realms/bamoe</defaultValue>
+		</requiredProperty>
+
+		<!-- Images -->
+		<requiredProperty key="containerImageBuild">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="containerImagePush">
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="containerImageGroup">
+			<defaultValue>bamoe</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="containerImageBuilder">
+			<defaultValue>jib</defaultValue>
+		</requiredProperty>
+
+		<!-- Kubernetes -->
+		<requiredProperty key="kubernetesClientApiServerURL">
+			<defaultValue>untitled</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="kubernetesClientToken">
+			<defaultValue>untitled</defaultValue>
+		</requiredProperty>
+
+		<!-- OpenShift -->
+		<requiredProperty key="openshiftDeploy">
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="openshiftRouteExpose">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="openshiftRouteTargetPort">
+			<defaultValue>http</defaultValue>
+		</requiredProperty>
+
+		<!-- Registry -->
+		<requiredProperty key="containerImageRegistry">
+			<defaultValue>quay.io</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="containerImageUser">
+			<defaultValue>untitled</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="containerImagePassword">
+			<defaultValue>untitled</defaultValue>
+		</requiredProperty>
+
+		<!-- Process Stuff -->
+		<requiredProperty key="kogitoJobsServiceURL">
+			<defaultValue>http://localhost:${quarkus.http.port}</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="kogitoDataIndexURL">
+			<defaultValue>http://localhost:${quarkus.http.port}</defaultValue>
+		</requiredProperty>
+
+		<!-- Automatic Database Table Creation -->
+		<requiredProperty key="flyawayEnabled">
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
+
+		<!-- Persistence Type -->
+		<requiredProperty key="persistenceType">
+			<defaultValue>jdbc</defaultValue>
+		</requiredProperty>
+
+		<!-- Data Source -->
+		<requiredProperty key="dbKind">
+			<defaultValue>postgresql</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="dbUser">
+			<defaultValue>bamoe-user</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="dbPassword">
+			<defaultValue>bamoe-pass</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="jdbcURL">
+			<defaultValue>jdbc:postgresql://0.0.0.0:5432/bamoe</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="reactiveURL">
+			<defaultValue>postgresql://0.0.0.0:5432/bamoe</defaultValue>
+		</requiredProperty>
+
+		<!-- Transactions -->
+		<requiredProperty key="transactionsEnabled">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="processTransactionsEnabled">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="userTaskTransactionsEnabled">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+
+		<!-- Roles -->
+		<requiredProperty key="roles">
+			<defaultValue>admin,HR,IT</defaultValue>
+		</requiredProperty>
+	</requiredProperties>
+</archetype-descriptor>
