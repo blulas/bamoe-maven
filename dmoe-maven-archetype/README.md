@@ -57,7 +57,7 @@ The command above represents the minimal set of properties for the archetype. Th
 | useDMN | Boolean | Flag to indicate that DMN is being used in this project | true | No |
 | useDRL | Boolean | Flag to indicate that DLR is being used in this project | true | No |
 | useILMT | Boolean | Flag to indicate that IBM License Service is being used in this project | true | No |
-| runtime | String | Determines the runtime (Quarkus or Spring Boot) | quarkus | No |
+| runtime | String | Determines the runtime (quarkus or spring-boot) | quarkus | No |
 |
 **Note:** *The parameters of this archetype are meant to be extended as the organization adds more sharable dependencies, so please be sure to update these properties, the archetype, and this documentation!*
 
