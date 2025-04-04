@@ -8,6 +8,16 @@ In short, Archetype is a Maven project template generation toolkit. An archetype
 ## Building the Project
 In order to build the archetypes, you must run the following command `mvn clean install`, which will build all the archetypes and store themin the enterprise artifact repository as well as the local .m2 cache. 
 
+### Using the Archetype from the Command Line via Scripts
+Once the archetype has been built and installed into the enterprise artifact repository, navigate to the project folder for which you would like to create the new project, and run one of the following scripts, which are located in the `scripts` folder of this repository:
+
+- **fact-model.sh <projectName>** - Generates a reusable fact-model project.
+- **decision.sh <projectName> <runtime>** - Generates a v9 decision (DMOE) project, must specify the runtime _(quarkus, spring-boot)_.
+- **quarkus-decision.sh <projectName>** - Generates a v9 Quarkus-based decision (DMOE) project.
+- **sb-decision.sh <projectName>** - Generates a v9 SpringBoot-based decision (DMOE) project.
+- **process.sh <projectName> <runtime>** - Generates a v9 process (PAMOE) project, must specify the runtime _(quarkus only at this time, as of 9.2.0 release of BAMOE)_.
+- **quarkus-process.sh <projectName>** - Generates a v9 Quarkus-based process (PAMOE) project.
+
 ## Repository Modules
 This is a multi-module repository, with the following modules:
 

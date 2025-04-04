@@ -29,9 +29,10 @@ mvn archetype:generate -B "-DarchetypeGroupId=com.ibm.bamoe.maven" "-DarchetypeA
   "-DartifactId=$1" 
 ```
 
-As an alternative to the Maven command listed above, you can also use the supplied script files:
+As an alternative to the Maven command listed above, you can also use the supplied script files, located in the `scripts` folder of this repository:
 
-- **generateQuarkusProject <projectName> <runtime>** - Generates a v9 Quarkus-based Maven project.
+- **process.sh <projectName> <runtime>** - Generates a v9 process (PAMOE) project, must specify the runtime _(quarkus only at this time, as of 9.2.0 release of BAMOE)_.
+- **quarkus-process.sh <projectName>** - Generates a v9 Quarkus-based project (PAMOE) project.
 
 ### Archetype Parameters
 The command above represents the minimal set of properties for the archetype. The `-B command line option` essentially tells the archetype to run in batch mode, rather than interactive mode, which prompts for each archetype property. Each archetype property has a specific default value, set in the archetype descriptor, in the event the property is not provided on the command line. The remainder of the parameters are listed in the following table. All parameters can be added to the call to the archetype by specifying `-DparameterName=parameterValue` on the command line. Please note that most parameters have default values and are not required.
