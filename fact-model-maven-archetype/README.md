@@ -1,11 +1,10 @@
 # IBM Business Automation Manager Manager Open Edition - Fact Model Maven Archetype
-
-This repository contains a custom [**Maven Archetype**](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) for creating cloud native decision services based on [**IBM Business Automation Manager Open Edition v9**](https://www.ibm.com/docs/en/ibamoe/9.1.x) using [**Quarkus**](https://https://quarkus.io//) as the associated container runtime.
+This repository contains a custom [**Maven Archetype**](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) for creating  reusable fact model _(aka data model)_ for used with rules, decisions, and processes.
 
 ## Overview
 In short, Archetype is a Maven project template generation toolkit. An archetype is defined as an original pattern or model from which all other things of the same kind are made. The name fits as we are trying to provide a system that provides a consistent means of generating Maven projects, specifically, Kogito Decision Service projects. The archetype will help authors create Maven project templates for users, and provides users with the means to generate parameterized versions of those project templates.
 
-The `Fact Model Maven Archetype` produces a standard fact model _(aka data model)_ project structure, complete with a properly configured project `pom.xml` as well as including all of the core dependencies and build targets for a project using these types of artifacts, so that these data objects can be referened as Maven dependency in a decision or process service.  
+The `Fact Model Maven Archetype` produces a standard fact model _(aka data model)_ project structure, complete with a properly configured project `pom.xml` as well as including all of the core dependencies and build targets for a project using these types of artifacts, so that these data objects can be referened as Maven dependency in a rules, decision, or process service.  
 
 ## Getting Started
 In order to create a fact model project using the archetype, the archetype and plugin must both be installed/deployed to a Maven cache accessible to each developer. Once this is completed, the archetype can be used by a developer using the VS Code IDE.
