@@ -5,6 +5,7 @@
 		<fileSet filtered="true" packaged="false" encoding="UTF-8">
 			<directory></directory>
 			<includes>
+				<include>.gitignore</include>
 				<include>README.MD</include>
 				<include>LICENSE</include>
 				<include>pom.xml</include>
@@ -24,6 +25,7 @@
 			<includes>
 				<include>**/*.java</include>
 				<include>.gitkeep</include>
+				<include>.empty</include>
 			</includes>
 		</fileSet>
 
@@ -39,6 +41,7 @@
 				<include>**/*.scesim</include>
 				<include>**/*.xml</include>
 				<include>.gitkeep</include>
+				<include>.empty</include>
 			</includes>
 		</fileSet>
 
@@ -48,6 +51,7 @@
 			<includes>
 				<include>**/*.java</include>
 				<include>.gitkeep</include>
+				<include>.empty</include>
 			</includes>
 		</fileSet>
 
@@ -60,17 +64,7 @@
 				<include>**/*.scesim</include>
 				<include>**/*.feature</include>
 				<include>.gitkeep</include>
-			</includes>
-		</fileSet>
-
-		<!-- This folder contains the docker files for the project -->
-		<fileSet filtered="true" packaged="false" encoding="UTF-8">
-			<directory>src/main/docker</directory>
-			<includes>
-				<include>**/*.jvm</include>
-				<include>**/*.native</include>
-				<include>**/*.native-micro</include>
-				<include>.gitkeep</include>
+				<include>.empty</include>
 			</includes>
 		</fileSet>
 	</fileSets>
@@ -86,7 +80,7 @@
 		</requiredProperty>
 
 		<requiredProperty key="groupId">
-			<defaultValue>com.ibm.bamoe</defaultValue>
+			<defaultValue>com.myorg.myproject</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="artifactId">
@@ -102,7 +96,7 @@
 		</requiredProperty>
 
 		<requiredProperty key="useDMN">
-			<defaultValue>true</defaultValue>
+			<defaultValue>false</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="useDRL">
@@ -113,40 +107,8 @@
 			<defaultValue>true</defaultValue>
 		</requiredProperty>
 
-		<requiredProperty key="licenseArtifactId">
-			<defaultValue>bamoe-ilmt-compliance-quarkus-pamoe</defaultValue>
-		</requiredProperty>
-
 		<requiredProperty key="skipTests">
 			<defaultValue>true</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="runtimeGroupId">
-			<defaultValue>io.quarkus</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="runtimeArtifactId">
-			<defaultValue>quarkus-bom</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="runtimeVersion">
-			<defaultValue>3.8.6</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="runtimePlugin">
-			<defaultValue>quarkus-maven-plugin</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="bamoeGroupId">
-			<defaultValue>com.ibm.bamoe</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="bamoeArtifactId">
-			<defaultValue>bamoe-bom</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="bamoeVersion">
-			<defaultValue>9.1.1-ibm-0003</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="mavenCompilerPluginVersion">
@@ -177,13 +139,61 @@
 			<defaultValue>UTF-8</defaultValue>
 		</requiredProperty>
 
-		<!-- Development Profile -->
-		<requiredProperty key="port">
-			<defaultValue>8080</defaultValue>
+		<!-- BAMOE -->
+		<requiredProperty key="bamoeGroupId">
+			<defaultValue>com.ibm.bamoe</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="bamoeArtifactId">
+			<defaultValue>bamoe-bom</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="bamoeVersion">
+			<defaultValue>9.2.0-ibm-0004</defaultValue>
+		</requiredProperty>
+
+		<!-- BAMOE Runtimes -->
+		<requiredProperty key="runtime">
+			<defaultValue>quarkus</defaultValue>
+<!--		<defaultValue>spring-boot</defaultValue> -->
+		</requiredProperty>
+
+		<!-- Quarkus Runtime -->
+		<requiredProperty key="quarkusRuntimeGroupId">
+			<defaultValue>io.quarkus</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="quarkusRuntimeArtifactId">
+			<defaultValue>quarkus-bom</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="quarkusRuntimeVersion">
+			<defaultValue>3.15.3</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="quarkusPlugin">
+			<defaultValue>quarkus-maven-plugin</defaultValue>
+		</requiredProperty>
+
+		<!-- Spring Boot Runtime -->
+		<requiredProperty key="sbRuntimeGroupId">
+			<defaultValue>org.kie.kogito</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="sbRuntimeArtifactId">
+			<defaultValue>kogito-spring-boot-bom</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="sbPlugin">
+			<defaultValue>kogito-maven-plugin</defaultValue>
 		</requiredProperty>
 
 		<!-- Logging -->
-		<requiredProperty key="quarkusLogLevel">
+		<requiredProperty key="loggingEnabled">
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="loggingLevel">
 			<defaultValue>WARN</defaultValue>
 		</requiredProperty>
 
@@ -192,17 +202,25 @@
 			<defaultValue>true</defaultValue>
 		</requiredProperty>
 
-		<!-- Services -->
-		<requiredProperty key="devQuarkusServicesEnabled">
+		<!-- Images -->
+		<requiredProperty key="containerImageBuild">
 			<defaultValue>true</defaultValue>
 		</requiredProperty>
 
-		<requiredProperty key="devKogitoServicesEnabled">
-			<defaultValue>true</defaultValue>
+		<requiredProperty key="containerImagePush">
+			<defaultValue>false</defaultValue>
 		</requiredProperty>
 
-		<requiredProperty key="kogitoServiceURL">
-			<defaultValue>http://localhost:${quarkus.http.port}</defaultValue>
+		<requiredProperty key="containerImageGroup">
+			<defaultValue>bamoe</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="containerImageBuilder">
+			<defaultValue>jib</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="containerImageRegistry">
+			<defaultValue>dev.local</defaultValue>
 		</requiredProperty>
 
 		<!-- OIDC -->
@@ -224,58 +242,6 @@
 
 		<requiredProperty key="oidcAuthServerURL">
 			<defaultValue>http://127.0.0.1:8180/realms/bamoe</defaultValue>
-		</requiredProperty>
-
-		<!-- Images -->
-		<requiredProperty key="containerImageBuild">
-			<defaultValue>true</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="containerImagePush">
-			<defaultValue>false</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="containerImageGroup">
-			<defaultValue>bamoe</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="containerImageBuilder">
-			<defaultValue>jib</defaultValue>
-		</requiredProperty>
-
-		<!-- Kubernetes -->
-		<requiredProperty key="kubernetesClientApiServerURL">
-			<defaultValue>untitled</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="kubernetesClientToken">
-			<defaultValue>untitled</defaultValue>
-		</requiredProperty>
-
-		<!-- OpenShift -->
-		<requiredProperty key="openshiftDeploy">
-			<defaultValue>false</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="openshiftRouteExpose">
-			<defaultValue>true</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="openshiftRouteTargetPort">
-			<defaultValue>http</defaultValue>
-		</requiredProperty>
-
-		<!-- Registry -->
-		<requiredProperty key="containerImageRegistry">
-			<defaultValue>quay.io</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="containerImageUser">
-			<defaultValue>untitled</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="containerImagePassword">
-			<defaultValue>untitled</defaultValue>
 		</requiredProperty>
 
 		<!-- Process Stuff -->

@@ -37,7 +37,6 @@ As an alternative to the Maven command listed above, you can also use the suppli
 - **generateSpringBootProject <projectName>** - Generates a Spring Boot-based v9 Maven project.
 
 ### Archetype Parameters
-
 The command above represents the minimal set of properties for the archetype. The `-B command line option` essentially tells the archetype to run in batch mode, rather than interactive mode, which prompts for each archetype property. Each archetype property has a specific default value, set in the archetype descriptor, in the event the property is not provided on the command line. The remainder of the parameters are listed in the following table. All parameters can be added to the call to the archetype by specifying `-DparameterName=parameterValue` on the command line. Please note that most parameters have default values and are not required.
 
 **Decision Manager Open Edition Maven Archetype - Required and Optional Parameters.**
@@ -83,5 +82,6 @@ The command above represents the minimal set of properties for the archetype. Th
 | containerImageBuilder | String | Name of container image builder | jib | No |
 | containerImageRegistry | String | Name of the image repository | dev.local | No |
 |
+
 **Note:** *The parameters of this archetype are meant to be extended as the organization adds more sharable dependencies, so please be sure to update these properties, the archetype, and this documentation!*
 

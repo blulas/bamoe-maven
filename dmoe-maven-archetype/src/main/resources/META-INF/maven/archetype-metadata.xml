@@ -139,6 +139,18 @@
 			<defaultValue>UTF-8</defaultValue>
 		</requiredProperty>
 
+		<requiredProperty key="package">
+			<defaultValue>com.myorg.myproject</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="javaPackage">
+			<defaultValue>com/myorg/myproject</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="mainClassName">
+			<defaultValue>Application</defaultValue>
+		</requiredProperty>
+
 		<!-- BAMOE -->
 		<requiredProperty key="bamoeGroupId">
 			<defaultValue>com.ibm.bamoe</defaultValue>

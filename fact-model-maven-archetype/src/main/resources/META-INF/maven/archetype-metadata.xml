@@ -75,7 +75,7 @@
 		</requiredProperty>
 
 		<requiredProperty key="groupId">
-			<defaultValue>com.ibm.bamoe</defaultValue>
+			<defaultValue>com.myorg.myproject</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="artifactId">
@@ -91,11 +91,11 @@
 		</requiredProperty>
 
 		<requiredProperty key="javaPackage">
-			<defaultValue>com/sample/model</defaultValue>
+			<defaultValue>com/myorg/myproject/model</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="package">
-			<defaultValue>com.sample.model</defaultValue>
+			<defaultValue>com.myorg.myproject.model</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="sampleClassName">
