@@ -80,7 +80,7 @@
 		</requiredProperty>
 
 		<requiredProperty key="groupId">
-			<defaultValue>com.ibm.bamoe</defaultValue>
+			<defaultValue>com.myorg.myproject</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="artifactId">
@@ -186,11 +186,6 @@
 
 		<requiredProperty key="sbPlugin">
 			<defaultValue>kogito-maven-plugin</defaultValue>
-		</requiredProperty>
-
-		<!-- Development Profile -->
-		<requiredProperty key="port">
-			<defaultValue>8080</defaultValue>
 		</requiredProperty>
 
 		<!-- Logging -->

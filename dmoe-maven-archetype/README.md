@@ -28,7 +28,13 @@ mvn archetype:generate -B "-DarchetypeGroupId=com.ibm.bamoe.maven" "-DarchetypeA
   "-DprojectName=$1" \
   "-DartifactId=$1" \
   "-Druntime=$2
-```
+``` 
+
+As an alternative to the Maven command listed above, you can also use the supplied script files:
+
+- **generateProject <projectName> <runtime>** - Generates a v9 Maven project, must supply the runtime _(quarkus or spring-boot)_.
+- **generateQuarkusProject <projectName>** - Generates a v9 Quarkus-based Maven project.
+- **generateSpringBootProject <projectName>** - Generates a Spring Boot-based v9 Maven project.
 
 ### Archetype Parameters
 
@@ -54,10 +60,28 @@ The command above represents the minimal set of properties for the archetype. Th
 | mavenSurefirePluginVersion | String | Maven sure-fire plugin version | 3.0.0-M7 | No |
 | sourceEncoding | String | Source encoding scheme | UTF-8 | No |
 | outputEncoding | String | Output encoding scheme | UTF-8 | No |
+| loggingEnabled | Boolean | Enable logging | false | No |
+| loggingLevel | String | Logging Output Level | WARN | No |
+| swaggerEnabled | Boolean | Enable Swagger | false | No |
+| bamoeGroupId | String | Maven GroupID for BAMOE Libraries | com.ibm.bamoe | No |
+| bamoeArtifactId | String | Maven ArtifactID for BAMOE Libraries | bamoe-bom | No |
+| bamoeVersion | String | Maven Version for BAMOE Libraries | 9.2.0-ibm-0004 | No |
+| quarkusRuntimeGroupId | String | Maven GroupID for the Quarkus Runtime | io.quarkus | No |
+| quarkusRuntimeArtifactId | String | Maven ArtifactID for the Quarkus Runtime | quarkus-bom | No |
+| quarkusRuntimeVersion | String | Maven Version for the Quarkus Runtime | 3.15.3 | No |
+| quarkusPlugin | String | Quarkus Plugin | quarkus-maven-plugin | No |
+| sbRuntimeGroupId | String | Maven GroupID for the Spring Boot Runtime  | org.kie.kogito | No |
+| sbRumtimeArtifactId | String | Maven ArtifactID for Spring Boot Runtime  | kogito-spring-boot-bom | No |
+| sbPlugin | String | Maven Version for Spring Boot Runtime | kogito-maven-plugin | No |
+| runtime | String | Determines the runtime (quarkus or spring-boot) | quarkus | No |
 | useDMN | Boolean | Flag to indicate that DMN is being used in this project | true | No |
 | useDRL | Boolean | Flag to indicate that DLR is being used in this project | true | No |
 | useILMT | Boolean | Flag to indicate that IBM License Service is being used in this project | true | No |
-| runtime | String | Determines the runtime (quarkus or spring-boot) | quarkus | No |
+| containerImageBuild | Boolean | Build container image? | true | No |
+| containerImagePush | Boolean | Push container image? | false | No |
+| containerImageGroup | String | Group tag for container images | bamoe | No |
+| containerImageBuilder | String | Name of container image builder | jib | No |
+| containerImageRegistry | String | Name of the image repository | dev.local | No |
 |
 **Note:** *The parameters of this archetype are meant to be extended as the organization adds more sharable dependencies, so please be sure to update these properties, the archetype, and this documentation!*
 
