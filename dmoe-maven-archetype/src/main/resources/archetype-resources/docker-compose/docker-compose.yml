@@ -1,0 +1,12 @@
+services:
+
+  ${projectName}:
+    container_name: ${projectName}
+    image: ${containerImageRegistry}/${projectName}:${version}
+    profiles: ["example", "container"]
+    ports:
+      - "${hostPort}:${containerPort}"
+    environment:
+      QUARKUS_HTTP_CORS_ORIGINS: "/.*/"
+    extra_hosts:
+      - "127.0.0.1:host-gateway"

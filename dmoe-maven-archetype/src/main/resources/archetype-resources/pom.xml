@@ -289,6 +289,25 @@
                     </execution>
                 </executions>
             </plugin>
+
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+                				<copy overwrite="true" todir="./docker-compose/svg">
+									<fileset dir="target/classes/META-INF/processSVG/"/>
+								</copy>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 #end
 #if (${runtime} == 'spring-boot')
             <plugin>
@@ -313,6 +332,25 @@
 						<goals>
 							<goal>repackage</goal>
 						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+                				<copy overwrite="true" todir="./docker-compose/svg">
+									<fileset dir="target/classes/META-INF/processSVG/"/>
+								</copy>
+							</target>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>

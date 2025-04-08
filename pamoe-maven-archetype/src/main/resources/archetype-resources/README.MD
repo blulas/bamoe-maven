@@ -6,34 +6,23 @@ This repository contains the `${projectName} micro-process service`, packaged as
 ## How To Build ${projectName}
 Once you have configured your local development environment, you need to perform a `Maven Build` of the repository.  This repository is built using `mvn clean install` by either the CI/CD pipeline or on a local developer workstation.  If deploying artifacts to an enterprise Maven repository, please use `mvn clean deploy`, which requires configuration of the `distributionManagement` section of your project's parent pom.xml.  This project is configured to generate container images and push them to both the registry as well as your cluster, by adding the following properties and profile selection:
 
-```bash
-mvn clean install -Denv=container -Pcontainer
+```shell
+mvn clean package -Denv=container -Pcontainer,<dbtype>
 ```
+
+Current supported dbtypes in container mode are `postgresql` and `mssql`. So for e.g. to build the example using postgresql database configuration we can run the following command:  
 
 The `env` property selects %container properties in the `application.properties` file, based on the container prefix.  You can add -D<property>=<value> to each command in order to determine if the image should be published to the registry as well as being deployed to OpenShift, by overriding these defaults:
 
-#if (${runtime} == 'quarkus')
 - quarkus.container-image.build=<default=true>  --> build the image
 - quarkus.container-image.push=<default=false>  --> push the image to the registry
-- quarkus.openshift.deploy=<default=false>      --> push the image to OCP
+- quarkus.openshift.deploy=<default=false>      --> push the image to the cluster
 
 Examples: 
 
-```bash 
-mvn clean install -Denv=container -Pcontainer -Dquarkus.container-image.push=true
+```shell
+mvn clean package -Denv=container -Pcontainer,postgresql 
 ```
-#end
-#if (${runtime} == 'spring-boot')
-- spring-boot.container-image.build=<default=true>  --> build the image
-- spring-boot.container-image.push=<default=false>  --> push the image to the registry
-- spring-boot.openshift.deploy=<default=false>      --> push the image to OCP
-
-Examples: 
-
-```bash 
-mvn clean install -Denv=container -Pcontainer -Dspring-boot.container-image.push=true
-```
-#end
 
 This command would create and push the image, but require manual deployment.
 

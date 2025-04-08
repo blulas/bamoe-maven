@@ -19,6 +19,36 @@
 			</includes>
 		</fileSet>
 
+		<!-- This folder contains the .mvn files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>.mvn</directory>
+			<includes>
+				<include>**/*.config</include>
+				<include>.gitkeep</include>
+				<include>.empty</include>
+			</includes>
+		</fileSet>
+
+		<!-- This folder contains the docker-compose files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>docker-compose</directory>
+			<includes>
+				<include>**/*.yml</include>
+				<include>.gitkeep</include>
+				<include>.empty</include>
+			</includes>
+		</fileSet>
+
+		<!-- This folder contains the .svg files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>docker-compose/svg</directory>
+			<includes>
+				<include>**/*.svg</include>
+				<include>.gitkeep</include>
+				<include>.empty</include>
+			</includes>
+		</fileSet>
+
 		<!-- This folder contains the Java source files for the project -->
 		<fileSet filtered="true" packaged="false" encoding="UTF-8">
 			<directory>src/main/java</directory>
@@ -40,6 +70,16 @@
 				<include>**/*.dmn</include>
 				<include>**/*.scesim</include>
 				<include>**/*.xml</include>
+				<include>.gitkeep</include>
+				<include>.empty</include>
+			</includes>
+		</fileSet>
+
+		<!-- This folder contains the resource files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>src/main/resources/META-INF/processSVG</directory>
+			<includes>
+				<include>**/*.svg</include>
 				<include>.gitkeep</include>
 				<include>.empty</include>
 			</includes>
@@ -107,6 +147,10 @@
 			<defaultValue>true</defaultValue>
 		</requiredProperty>
 
+		<requiredProperty key="usePersistence">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+
 		<requiredProperty key="skipTests">
 			<defaultValue>true</defaultValue>
 		</requiredProperty>
@@ -139,6 +183,10 @@
 			<defaultValue>UTF-8</defaultValue>
 		</requiredProperty>
 
+		<requiredProperty key="processName">
+			<defaultValue>sample-process</defaultValue>
+		</requiredProperty>
+
 		<!-- BAMOE -->
 		<requiredProperty key="bamoeGroupId">
 			<defaultValue>com.ibm.bamoe</defaultValue>
@@ -155,7 +203,6 @@
 		<!-- BAMOE Runtimes -->
 		<requiredProperty key="runtime">
 			<defaultValue>quarkus</defaultValue>
-<!--		<defaultValue>spring-boot</defaultValue> -->
 		</requiredProperty>
 
 		<!-- Quarkus Runtime -->
@@ -173,19 +220,6 @@
 
 		<requiredProperty key="quarkusPlugin">
 			<defaultValue>quarkus-maven-plugin</defaultValue>
-		</requiredProperty>
-
-		<!-- Spring Boot Runtime -->
-		<requiredProperty key="sbRuntimeGroupId">
-			<defaultValue>org.kie.kogito</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="sbRuntimeArtifactId">
-			<defaultValue>kogito-spring-boot-bom</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="sbPlugin">
-			<defaultValue>kogito-maven-plugin</defaultValue>
 		</requiredProperty>
 
 		<!-- Logging -->
@@ -228,6 +262,10 @@
 			<defaultValue>false</defaultValue>
 		</requiredProperty>
 
+		<requiredProperty key="kogitoAuthEnabled">
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
+
 		<requiredProperty key="oidcDiscoveryEnabled">
 			<defaultValue>false</defaultValue>
 		</requiredProperty>
@@ -244,13 +282,25 @@
 			<defaultValue>http://127.0.0.1:8180/realms/bamoe</defaultValue>
 		</requiredProperty>
 
-		<!-- Process Stuff -->
+		<!-- Services -->
+		<requiredProperty key="kogitoServiceURL">
+			<defaultValue>http://0.0.0.0:${hostPort}</defaultValue>
+		</requiredProperty>
+
 		<requiredProperty key="kogitoJobsServiceURL">
-			<defaultValue>http://localhost:${quarkus.http.port}</defaultValue>
+			<defaultValue>http://0.0.0.0:${hostPort}</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="kogitoDataIndexURL">
-			<defaultValue>http://localhost:${quarkus.http.port}</defaultValue>
+			<defaultValue>http://0.0.0.0:${hostPort}</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="hostPort">
+			<defaultValue>8080</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="containerPort">
+			<defaultValue>8080</defaultValue>
 		</requiredProperty>
 
 		<!-- Automatic Database Table Creation -->
@@ -258,7 +308,14 @@
 			<defaultValue>false</defaultValue>
 		</requiredProperty>
 
-		<!-- Persistence Type -->
+		<!-- Persistence -->
+		<requiredProperty key="persistenceProvider">
+			<defaultValue>postgresql</defaultValue>
+<!--		<defaultValue>h2</defaultValue>
+			<defaultValue>mssql</defaultValue>
+-->			
+		</requiredProperty>
+
 		<requiredProperty key="persistenceType">
 			<defaultValue>jdbc</defaultValue>
 		</requiredProperty>
@@ -269,19 +326,19 @@
 		</requiredProperty>
 
 		<requiredProperty key="dbUser">
-			<defaultValue>bamoe-user</defaultValue>
+			<defaultValue>kie-user</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="dbPassword">
-			<defaultValue>bamoe-pass</defaultValue>
+			<defaultValue>kie-pass</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="jdbcURL">
-			<defaultValue>jdbc:postgresql://0.0.0.0:5432/bamoe</defaultValue>
+			<defaultValue>jdbc:postgresql://0.0.0.0:5432/kie</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="reactiveURL">
-			<defaultValue>postgresql://0.0.0.0:5432/bamoe</defaultValue>
+			<defaultValue>postgresql://0.0.0.0:5432/kie</defaultValue>
 		</requiredProperty>
 
 		<!-- Transactions -->

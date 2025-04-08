@@ -29,9 +29,7 @@
 
 		<!-- BAMOE -->
 		<bamoe.version>${bamoeVersion}</bamoe.version>
-#if (${runtime} == 'quarkus')
 		<bamoe.runtime.version>${quarkusRuntimeVersion}</bamoe.runtime.version>
-#end
 
 		<!-- Testing Properties -->
       	<skipTests>${skipTests}</skipTests>
@@ -40,7 +38,6 @@
 	<!-- Dependency Management -->
 	<dependencyManagement>
 		<dependencies>
-#if (${runtime} == 'quarkus')
 			<!-- BAMOE Quarkus Runtime -->
 			<dependency>
 				<groupId>${quarkusRuntimeGroupId}</groupId>
@@ -58,22 +55,10 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-#end
-#if (${runtime} == 'spring-boot')
-			<!-- BAMOE Spring Boot Runtime -->
-			<dependency>
-				<groupId>${sbRuntimeGroupId}</groupId>
-				<artifactId>${sbRuntimeArtifactId}</artifactId>
-				<version>${bamoe.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-#end
 		</dependencies>
 	</dependencyManagement>
 
 	<dependencies>
-#if (${runtime} == 'quarkus')
 #if (${useILMT} == 'true')
 		<!-- IBM License Service (ILMT) Support -->
 		<dependency>
@@ -108,44 +93,90 @@
 			<artifactId>quarkus-arc</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.jbpm</groupId>
+			<artifactId>jbpm-with-drools-quarkus</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-addons-quarkus-process-management</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kogito-addons-quarkus-jobs-management</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-addons-quarkus-process-svg</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-addons-quarkus-source-files</artifactId>
+		</dependency>
+
+		<!-- Persistence -->
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-agroal</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-addons-quarkus-persistence-jdbc</artifactId>
+		</dependency>
+
+		<!-- User Task Persistence -->
+		<dependency>
+			<groupId>org.jbpm</groupId>
+			<artifactId>jbpm-addons-quarkus-usertask-storage-jpa</artifactId>
+		</dependency>
+
+		<!-- Data-Index Addon -->
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kogito-addons-quarkus-data-index-jpa</artifactId>
+		</dependency>
+
+		<!-- Jobs Service -->
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kogito-addons-quarkus-jobs</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.kie.kogito</groupId>
+			<artifactId>jobs-service-storage-jpa</artifactId>
+		</dependency>
+
+		<!-- Data Audit -->
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kogito-addons-quarkus-data-audit-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kogito-addons-quarkus-data-audit</artifactId>
+		</dependency>
 #if (${useDMN} == 'true')
+
+		<!-- Decisions -->
 		<dependency>
 			<groupId>org.drools</groupId>
 			<artifactId>drools-quarkus-decisions</artifactId>
 		</dependency>
 #end
-
 #if (${useDRL} == 'true')
+
+		<!-- Rules -->
 		<dependency>
 			<groupId>org.drools</groupId>
 			<artifactId>drools-quarkus-rules</artifactId>
 		</dependency>
-#end
-
-		<!-- Event Management -->
-		<!--
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-messaging-kafka</artifactId>
-		</dependency>
-		-->				
-
-#if (${useDRL} == 'true')
-		<!--
-		<dependency>
-			<groupId>org.drools</groupId>
-			<artifactId>drools-addons-quarkus-events-rules</artifactId>
-		</dependency>
-		-->				
-#end
-
-#if (${useDMN} == 'true')
-		<!--
-		<dependency>
-			<groupId>org.kie</groupId>
-			<artifactId>kie-addons-quarkus-events-decisions</artifactId>
-		</dependency>		
-		-->				
 #end
 
 		<!-- Testing -->
@@ -166,79 +197,60 @@
 			<artifactId>kogito-scenario-simulation</artifactId>
 			<scope>test</scope>
 		</dependency>
-#end
-#if (${runtime} == 'spring-boot')
-#if (${useILMT} == 'true')
-		<!-- IBM License Service (ILMT) Support -->
-		<dependency>
-			<groupId>com.ibm.bamoe</groupId>
-			<artifactId>bamoe-ilmt-compliance-spring-boot-pamoe</artifactId>
-		</dependency>
-#end
-
-		<!-- Spring Boot Dependencies -->
-		<dependency>
-      		<groupId>org.springframework.boot</groupId>
-      		<artifactId>spring-boot-starter-actuator</artifactId>
-    	</dependency>
-
-#if (${useDMN} == 'true')
-		<dependency>
-			<groupId>org.drools</groupId>
-			<artifactId>drools-decisions-spring-boot-starter</artifactId>
-		</dependency>
-#end
-
-#if (${useDRL} == 'true')		
-		<dependency>
-			<groupId>org.drools</groupId>
-			<artifactId>drools-rules-spring-boot-starter</artifactId>
-		</dependency>
-#end
-
-		<!-- Event Management -->
-#if (${useDRL} == 'true')		
-		<!--
-		<dependency>
-			<groupId>org.drools</groupId>
-			<artifactId>drools-addons-springboot-events-rules</artifactId>
-    	</dependency>
-		-->		
-#end
-
-#if (${useDMN} == 'true')
-		<!--
-		<dependency>
-      		<groupId>org.kie</groupId>
-      		<artifactId>kie-addons-springboot-events-decisions</artifactId>
-    	</dependency>
-		-->		
-#end
-
-		<!-- Testing -->
-		<dependency>
-      		<groupId>org.springframework.boot</groupId>
-      		<artifactId>spring-boot-starter-test</artifactId>
-      		<scope>test</scope>
-    	</dependency>
-
-		<dependency>
-			<groupId>io.rest-assured</groupId>
-			<artifactId>rest-assured</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.kie.kogito</groupId>
-			<artifactId>kogito-scenario-simulation</artifactId>
-			<scope>test</scope>
-		</dependency>
-#end
 	</dependencies>
-#if (${runtime} == 'quarkus')
 
 	<!-- Profiles -->
    	<profiles>
+   		<!-- H2 Database Profile:  The default database if no profile is specified. -->
+		<profile>
+			<id>h2</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<quarkus.profile>h2</quarkus.profile>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>io.quarkus</groupId>
+					<artifactId>quarkus-jdbc-h2</artifactId>
+				</dependency>
+			</dependencies>
+		</profile>
+
+		<!-- PostgreSQL Database Profile -->
+		<profile>
+			<id>postgresql</id>
+			<properties>
+				<quarkus.profile>postgresql</quarkus.profile>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>io.quarkus</groupId>
+					<artifactId>quarkus-jdbc-postgresql</artifactId>
+				</dependency>
+			</dependencies>
+		</profile>
+
+		<!-- MS SQL Server Database Profile -->
+		<profile>
+			<id>mssql</id>
+			<properties>
+				<quarkus.profile>mssql</quarkus.profile>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>io.quarkus</groupId>
+					<artifactId>quarkus-jdbc-mssql</artifactId>
+				</dependency>
+				<dependency>
+					<groupId>com.ibm.bamoe</groupId>
+					<artifactId>bamoe-mssql-mappings</artifactId>
+					<version>${bamoe.version}</version>
+				</dependency>
+			</dependencies>
+		</profile>
+
    		<!-- Container Image Profile (set this to build and deploy the app as a container image) -->
         <profile>
             <id>container</id>
@@ -257,23 +269,28 @@
 		<!-- Development Profile (set this to build and test locally as a Quarkus Dev service -->
         <profile>
             <id>development</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-
             <properties>
                 <quarkus.profile>dev</quarkus.profile>
             </properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.jbpm</groupId>
+					<artifactId>jbpm-quarkus-devui</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>io.quarkus</groupId>
+					<artifactId>quarkus-jdbc-h2</artifactId>
+				</dependency>
+			</dependencies>
         </profile>
     </profiles>
-#end
 
 	<!-- Build Plugin Management -->
     <build>
         <defaultGoal>install</defaultGoal>
         <finalName>${project.artifactId}</finalName>
         <plugins>
-#if (${runtime} == 'quarkus')
             <plugin>
                 <groupId>${quarkusRuntimeGroupId}</groupId>
                 <artifactId>${quarkusPlugin}</artifactId>
@@ -288,34 +305,25 @@
                     </execution>
                 </executions>
             </plugin>
-#end
-#if (${runtime} == 'spring-boot')
-            <plugin>
-				<groupId>${sbRuntimeGroupId}</groupId>
-				<artifactId>${sbPlugin}</artifactId>
-				<version>${bamoe.version}</version>
-				<executions>
-					<execution>
-						<phase>compile</phase>
-						<goals>
-							<goal>generateModel</goal>
-						</goals>
-					</execution>
-				</executions>
-            </plugin>
 
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<artifactId>maven-antrun-plugin</artifactId>
 				<executions>
 					<execution>
+						<phase>package</phase>
 						<goals>
-							<goal>repackage</goal>
+							<goal>run</goal>
 						</goals>
+						<configuration>
+							<target>
+                				<copy overwrite="true" todir="./docker-compose/svg">
+									<fileset dir="target/classes/META-INF/processSVG/"/>
+								</copy>
+							</target>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
-#end
         </plugins>
     </build>
 </project>

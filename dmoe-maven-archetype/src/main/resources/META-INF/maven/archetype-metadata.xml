@@ -19,6 +19,36 @@
 			</includes>
 		</fileSet>
 
+		<!-- This folder contains the .mvn files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>.mvn</directory>
+			<includes>
+				<include>**/*.config</include>
+				<include>.gitkeep</include>
+				<include>.empty</include>
+			</includes>
+		</fileSet>
+
+		<!-- This folder contains the docker-compose files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>docker-compose</directory>
+			<includes>
+				<include>**/*.yml</include>
+				<include>.gitkeep</include>
+				<include>.empty</include>
+			</includes>
+		</fileSet>
+
+		<!-- This folder contains the .svg files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>docker-compose/svg</directory>
+			<includes>
+				<include>**/*.svg</include>
+				<include>.gitkeep</include>
+				<include>.empty</include>
+			</includes>
+		</fileSet>
+
 		<!-- This folder contains the Java source files for the project -->
 		<fileSet filtered="true" packaged="false" encoding="UTF-8">
 			<directory>src/main/java</directory>
@@ -40,6 +70,16 @@
 				<include>**/*.dmn</include>
 				<include>**/*.scesim</include>
 				<include>**/*.xml</include>
+				<include>.gitkeep</include>
+				<include>.empty</include>
+			</includes>
+		</fileSet>
+
+		<!-- This folder contains the resource files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>src/main/resources/META-INF/processSVG</directory>
+			<includes>
+				<include>**/*.svg</include>
 				<include>.gitkeep</include>
 				<include>.empty</include>
 			</includes>
@@ -233,6 +273,14 @@
 
 		<requiredProperty key="containerImageRegistry">
 			<defaultValue>dev.local</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="hostPort">
+			<defaultValue>8080</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="containerPort">
+			<defaultValue>8080</defaultValue>
 		</requiredProperty>
 	</requiredProperties>
 </archetype-descriptor>

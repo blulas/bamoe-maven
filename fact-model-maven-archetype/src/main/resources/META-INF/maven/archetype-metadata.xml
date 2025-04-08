@@ -19,6 +19,16 @@
 			</includes>
 		</fileSet>
 
+		<!-- This folder contains the .mvn files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>.mvn</directory>
+			<includes>
+				<include>**/*.config</include>
+				<include>.gitkeep</include>
+				<include>.empty</include>
+			</includes>
+		</fileSet>
+
 		<!-- This folder contains the Java source files for the project -->
 		<fileSet filtered="true" packaged="false" encoding="UTF-8">
 			<directory>src/main/java</directory>
