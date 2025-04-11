@@ -24,6 +24,7 @@
 			<includes>
 				<include>**/*.java</include>
 				<include>.gitkeep</include>
+				<include>.empty</include>
 			</includes>
 		</fileSet>
 
@@ -39,15 +40,27 @@
 				<include>**/*.scesim</include>
 				<include>**/*.xml</include>
 				<include>.gitkeep</include>
+				<include>.empty</include>
 			</includes>
 		</fileSet>
 
-		<!-- This folder contains the Java test ource files for the project -->
+		<!-- This folder contains the resource files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>src/main/resources/META-INF</directory>
+			<includes>
+				<include>**/*.xml</include>
+				<include>.gitkeep</include>
+				<include>.empty</include>
+			</includes>
+		</fileSet>
+
+		<!-- This folder contains the Java test source files for the project -->
 		<fileSet filtered="true" packaged="false" encoding="UTF-8">
 			<directory>src/test/java</directory>
 			<includes>
 				<include>**/*.java</include>
 				<include>.gitkeep</include>
+				<include>.empty</include>
 			</includes>
 		</fileSet>
 
@@ -60,17 +73,7 @@
 				<include>**/*.scesim</include>
 				<include>**/*.feature</include>
 				<include>.gitkeep</include>
-			</includes>
-		</fileSet>
-
-		<!-- This folder contains the docker files for the project -->
-		<fileSet filtered="true" packaged="false" encoding="UTF-8">
-			<directory>src/main/docker</directory>
-			<includes>
-				<include>**/*.jvm</include>
-				<include>**/*.native</include>
-				<include>**/*.native-micro</include>
-				<include>.gitkeep</include>
+				<include>.empty</include>
 			</includes>
 		</fileSet>
 	</fileSets>
@@ -82,11 +85,11 @@
 		</requiredProperty>
 
 		<requiredProperty key="projectDescription">
-			<defaultValue>Stateful Process Service</defaultValue>
+			<defaultValue>Process Knowledge Jar (KJAR)</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="groupId">
-			<defaultValue>com.ibm.bamoe</defaultValue>
+			<defaultValue>com.myorg.myproject</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="artifactId">
@@ -98,55 +101,27 @@
 		</requiredProperty>
 
 		<requiredProperty key="packaging">
-			<defaultValue>jar</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="useDMN">
-			<defaultValue>true</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="useDRL">
-			<defaultValue>false</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="useILMT">
-			<defaultValue>true</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="licenseArtifactId">
-			<defaultValue>bamoe-ilmt-compliance-quarkus-pamoe</defaultValue>
+			<defaultValue>kjar</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="skipTests">
 			<defaultValue>true</defaultValue>
 		</requiredProperty>
 
-		<requiredProperty key="runtimeGroupId">
-			<defaultValue>io.quarkus</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="runtimeArtifactId">
-			<defaultValue>quarkus-bom</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="runtimeVersion">
-			<defaultValue>3.8.6</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="runtimePlugin">
-			<defaultValue>quarkus-maven-plugin</defaultValue>
-		</requiredProperty>
-
 		<requiredProperty key="bamoeGroupId">
-			<defaultValue>com.ibm.bamoe</defaultValue>
+			<defaultValue>com.redhat.ba</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="bamoeArtifactId">
-			<defaultValue>bamoe-bom</defaultValue>
+			<defaultValue>ba-platform-bom</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="bamoeVersion">
-			<defaultValue>9.1.1-ibm-0003</defaultValue>
+			<defaultValue>8.0.7.redhat-00004</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="kieVersion">
+			<defaultValue>7.67.2.Final-redhat-00034</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="mavenCompilerPluginVersion">
@@ -166,7 +141,7 @@
 		</requiredProperty>
 
 		<requiredProperty key="javaVersion">
-			<defaultValue>17</defaultValue>
+			<defaultValue>11</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="sourceEncoding">
@@ -175,165 +150,6 @@
 
 		<requiredProperty key="outputEncoding">
 			<defaultValue>UTF-8</defaultValue>
-		</requiredProperty>
-
-		<!-- Development Profile -->
-		<requiredProperty key="port">
-			<defaultValue>8080</defaultValue>
-		</requiredProperty>
-
-		<!-- Logging -->
-		<requiredProperty key="quarkusLogLevel">
-			<defaultValue>WARN</defaultValue>
-		</requiredProperty>
-
-		<!-- Swagger -->
-		<requiredProperty key="swaggerEnabled">
-			<defaultValue>true</defaultValue>
-		</requiredProperty>
-
-		<!-- Services -->
-		<requiredProperty key="devQuarkusServicesEnabled">
-			<defaultValue>true</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="devKogitoServicesEnabled">
-			<defaultValue>true</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="kogitoServiceURL">
-			<defaultValue>http://localhost:${quarkus.http.port}</defaultValue>
-		</requiredProperty>
-
-		<!-- OIDC -->
-		<requiredProperty key="oidcEnabled">
-			<defaultValue>false</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="oidcDiscoveryEnabled">
-			<defaultValue>false</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="oidcTenantEnabled">
-			<defaultValue>false</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="oidcClientId">
-			<defaultValue>bamoe</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="oidcAuthServerURL">
-			<defaultValue>http://127.0.0.1:8180/realms/bamoe</defaultValue>
-		</requiredProperty>
-
-		<!-- Images -->
-		<requiredProperty key="containerImageBuild">
-			<defaultValue>true</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="containerImagePush">
-			<defaultValue>false</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="containerImageGroup">
-			<defaultValue>bamoe</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="containerImageBuilder">
-			<defaultValue>jib</defaultValue>
-		</requiredProperty>
-
-		<!-- Kubernetes -->
-		<requiredProperty key="kubernetesClientApiServerURL">
-			<defaultValue>untitled</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="kubernetesClientToken">
-			<defaultValue>untitled</defaultValue>
-		</requiredProperty>
-
-		<!-- OpenShift -->
-		<requiredProperty key="openshiftDeploy">
-			<defaultValue>false</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="openshiftRouteExpose">
-			<defaultValue>true</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="openshiftRouteTargetPort">
-			<defaultValue>http</defaultValue>
-		</requiredProperty>
-
-		<!-- Registry -->
-		<requiredProperty key="containerImageRegistry">
-			<defaultValue>quay.io</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="containerImageUser">
-			<defaultValue>untitled</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="containerImagePassword">
-			<defaultValue>untitled</defaultValue>
-		</requiredProperty>
-
-		<!-- Process Stuff -->
-		<requiredProperty key="kogitoJobsServiceURL">
-			<defaultValue>http://localhost:${quarkus.http.port}</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="kogitoDataIndexURL">
-			<defaultValue>http://localhost:${quarkus.http.port}</defaultValue>
-		</requiredProperty>
-
-		<!-- Automatic Database Table Creation -->
-		<requiredProperty key="flyawayEnabled">
-			<defaultValue>false</defaultValue>
-		</requiredProperty>
-
-		<!-- Persistence Type -->
-		<requiredProperty key="persistenceType">
-			<defaultValue>jdbc</defaultValue>
-		</requiredProperty>
-
-		<!-- Data Source -->
-		<requiredProperty key="dbKind">
-			<defaultValue>postgresql</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="dbUser">
-			<defaultValue>bamoe-user</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="dbPassword">
-			<defaultValue>bamoe-pass</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="jdbcURL">
-			<defaultValue>jdbc:postgresql://0.0.0.0:5432/bamoe</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="reactiveURL">
-			<defaultValue>postgresql://0.0.0.0:5432/bamoe</defaultValue>
-		</requiredProperty>
-
-		<!-- Transactions -->
-		<requiredProperty key="transactionsEnabled">
-			<defaultValue>true</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="processTransactionsEnabled">
-			<defaultValue>true</defaultValue>
-		</requiredProperty>
-
-		<requiredProperty key="userTaskTransactionsEnabled">
-			<defaultValue>true</defaultValue>
-		</requiredProperty>
-
-		<!-- Roles -->
-		<requiredProperty key="roles">
-			<defaultValue>admin,HR,IT</defaultValue>
 		</requiredProperty>
 	</requiredProperties>
 </archetype-descriptor>

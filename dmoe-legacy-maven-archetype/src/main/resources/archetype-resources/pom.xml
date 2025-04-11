@@ -25,17 +25,10 @@
         <maven.compiler.parameters>${mavenCompilerParameters}</maven.compiler.parameters>
 		<maven.compiler.plugin.version>${mavenCompilerPluginVersion}</maven.compiler.plugin.version>
         <maven.resources.plugin.version>${mavenResourcesPluginVersion}</maven.resources.plugin.version>
-		<maven.surefire.plugin.version>${mavenSurefirePluginVersion}</maven.surefire.plugin.version>
 
-		<!-- BAMOE Runtime (Quarkus)-->
-		<bamoe.runtime.groupId>${runtimeGroupId}</bamoe.runtime.groupId>
-		<bamoe.runtime.artifactId>${runtimeArtifactId}</bamoe.runtime.artifactId>
-		<bamoe.runtime.version>${runtimeVersion}</bamoe.runtime.version>
-
-		<!-- BAMOE -->
-		<bamoe.groupId>${bamoeGroupId}</bamoe.groupId>
-		<bamoe.artifactId>${bamoeArtifactId}</bamoe.artifactId>
-		<bamoe.version>${bamoeVersion}</bamoe.version>
+        <!-- BAMOE -->
+        <bamoe.bom.version>${bamoeVersion}</bamoe.bom.version>  
+        <org.kie.version>${kieVersion}</org.kie.version>  		
 
 		<!-- Testing Properties -->
       	<skipTests>${skipTests}</skipTests>
@@ -44,147 +37,94 @@
 	<!-- Dependency Management -->
 	<dependencyManagement>
 		<dependencies>
-			<!-- BAMOE Runtime -->
-			<dependency>
-				<groupId>${bamoe.runtime.groupId}</groupId>
-				<artifactId>${bamoe.runtime.artifactId}</artifactId>
-				<version>${bamoe.runtime.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-
-			<!-- BAMOE GA -->
-			<dependency>
-				<groupId>${bamoe.groupId}</groupId>
-				<artifactId>${bamoe.artifactId}</artifactId>
-				<version>${bamoe.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
+            <!-- BAMOE Libraries -->
+            <dependency>
+                <groupId>${bamoeGroupId}</groupId>
+                <artifactId>${bamoeArtifactId}</artifactId>
+                <version>${bamoe.bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 		</dependencies>
 	</dependencyManagement>
 
 	<dependencies>
-#if (${useILMT} == 'true')
-		<!-- IBM License Service (ILMT) Support -->
-		<dependency>
-			<groupId>com.ibm.bamoe</groupId>
-			<artifactId>${licenseArtifactId}</artifactId>
-		</dependency>
-#end
+        <!-- BAMOE Dependencies -->
+        <dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kie-api</artifactId>
+        </dependency>
 
-		<!-- Quarkus Dependencies -->
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-resteasy</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kie-internal</artifactId>
+        </dependency>
 
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-resteasy-jackson</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.jbpm</groupId>
+            <artifactId>jbpm-bpmn2</artifactId>
+        </dependency>
 
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-smallrye-openapi</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-core</artifactId>
+        </dependency>
+      
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-engine</artifactId>
+        </dependency>
 
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-smallrye-health</artifactId>
-		</dependency>
-
-		<!-- KIE Addons -->
-#if (${useDMN} == 'true')
-		<dependency>
-			<groupId>org.drools</groupId>
-			<artifactId>drools-quarkus-decisions</artifactId>
-		</dependency>
-#end
-#if (${useDRL} == 'true')
-
-		<dependency>
-			<groupId>org.drools</groupId>
-			<artifactId>drools-quarkus-rules</artifactId>
-		</dependency>
-#end
-
-		<!-- Testing -->
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-junit5</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.kie.kogito</groupId>
-			<artifactId>kogito-scenario-simulation</artifactId>
-			<scope>test</scope>
-		</dependency>
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-compiler</artifactId>
+        </dependency>
 	</dependencies>
-
- 	<!-- Profiles -->
-   <profiles>
-   		<!-- Container Image Profile (set this to build and deploy the app as a container image) -->
-        <profile>
-            <id>container</id>
-            <properties>
-                <quarkus.profile>container</quarkus.profile>
-            </properties>
-
-            <dependencies>
-                <dependency>
-                    <groupId>io.quarkus</groupId>
-                    <artifactId>quarkus-kubernetes</artifactId>
-                </dependency>
-
-                <dependency>
-                    <groupId>io.quarkus</groupId>
-                    <artifactId>quarkus-openshift</artifactId>
-                </dependency>
-
-                <dependency>
-                    <groupId>io.quarkus</groupId>
-                    <artifactId>quarkus-container-image-jib</artifactId>
-                </dependency>
-            </dependencies>
-        </profile>
-
-		<!-- Development Profile (set this to build and test locally as a Quarkus Dev service -->
-        <profile>
-            <id>development</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-
-            <properties>
-                <quarkus.profile>dev</quarkus.profile>
-            </properties>
-
-            <dependencies>
-            </dependencies>
-        </profile>
-    </profiles>
 
 	<!-- Build Plugin Management -->
     <build>
-        <defaultGoal>install</defaultGoal>
-        <finalName>${project.artifactId}</finalName>
+  	    <defaultGoal>install</defaultGoal>
         <plugins>
             <plugin>
-                <groupId>${bamoe.runtime.groupId}</groupId>
-                <artifactId>quarkus-maven-plugin</artifactId>
-                <version>${bamoe.runtime.version}</version>
+                <groupId>org.kie</groupId>
+                <artifactId>kie-maven-plugin</artifactId>
+                <version>${org.kie.version}</version>
+                <extensions>true</extensions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                  <source>${java.version}</source>
+                  <target>${java.version}</target>
+                </configuration>
+			</plugin>
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven.resources.plugin.version}</version>
                 <executions>
                     <execution>
+                        <id>default-testResources</id>
+                        <phase>test-compile</phase>
                         <goals>
-                            <goal>build</goal>
-                            <goal>generate-code</goal>
-                            <goal>generate-code-tests</goal>
+                            <goal>testResources</goal>
                         </goals>
+                        <configuration>
+                          <resources>
+                            <resource>
+                              <directory>src/test/resources</directory>
+                              <excludes>
+                                <exclude>**/*.*.scesim</exclude>
+                              </excludes>
+                            </resource>
+                          </resources>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
-        </plugins>
+		</plugins>
     </build>
 </project>

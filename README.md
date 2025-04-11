@@ -17,6 +17,8 @@ Once the archetype has been built and installed into the enterprise artifact rep
 - **sb-decision.sh <projectName>** - Generates a v9 SpringBoot-based decision (DMOE) project.
 - **process.sh <projectName> <runtime>** - Generates a v9 process (PAMOE) project, must specify the runtime _(quarkus only at this time, as of 9.2.0 release of BAMOE)_.
 - **quarkus-process.sh <projectName>** - Generates a v9 Quarkus-based process (PAMOE) project.
+- **legacy-decision.sh <projectName>** - Generates a v8 (legacy) decisions KJAR project.
+- **legacy-process.sh <projectName>** - Generates a v8 (legacy) process KJAR project.
 
 ## Repository Modules
 This is a multi-module repository, with the following modules:
@@ -24,9 +26,6 @@ This is a multi-module repository, with the following modules:
 - [**Fact Model Maven Archetype**](./fact-model-maven-archetype) is an archetype that can create a reusable fact model project. 
 - [**IBM Decision Manager Open Edition (DMOE) Maven Archetype**](./dmoe-maven-archetype) is an archetype that can create a DMOE (v9) decision service project. 
 - [**IBM Process Automation Manager Open Edition (PAMOE) Maven Archetype**](./pamoe-maven-archetype) is an archetype that can create a PAMOE (v9) process service project. 
-
-The following modules are available, but not updated for the latest release...
-
 - [**IBM Decision Manager Open Edition (DMOE) Legacy (KJAR) Maven Archetype**](./dmoe-legacy-maven-archetype) is an archetype that can create a legacy DMOE (v8) decision service KJAR project. 
 - [**IBM Process Automation Manager Open Edition (PAMOE) Legacy (KJAR) Maven Archetype**](./pamoe-legacy-maven-archetype) is an archetype that can create a legacy (v8) PAMOE process service KJAR project.
 
