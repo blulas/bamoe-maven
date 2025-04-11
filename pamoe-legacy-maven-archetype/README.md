@@ -1,4 +1,4 @@
-# IBM Process Automation Manager Open Edition (Legacy) - - KJAR Maven Archetype
+# IBM Process Automation Manager Open Edition (Legacy)  - KJAR Maven Archetype
 This repository contains a custom [**Maven Archetype**](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) for creating legacy Knowledge JAR (KJAR) projects based on [**IBM Business Automation Manager Open Edition v8**](https://www.ibm.com/docs/en/ibamoe/8.0.x).
 
 ## Overview
