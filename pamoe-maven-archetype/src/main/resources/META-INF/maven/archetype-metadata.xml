@@ -284,15 +284,15 @@
 
 		<!-- Services -->
 		<requiredProperty key="kogitoServiceURL">
-			<defaultValue>http://0.0.0.0:${hostPort}</defaultValue>
+			<defaultValue>http://127.0.0.1:${hostPort}</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="kogitoJobsServiceURL">
-			<defaultValue>http://0.0.0.0:${hostPort}</defaultValue>
+			<defaultValue>http://127.0.0.1:${hostPort}</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="kogitoDataIndexURL">
-			<defaultValue>http://0.0.0.0:${hostPort}</defaultValue>
+			<defaultValue>http://127.0.0.1:${hostPort}</defaultValue>
 		</requiredProperty>
 
 		<requiredProperty key="hostPort">

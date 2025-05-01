@@ -213,6 +213,11 @@
 			<dependencies>
 				<dependency>
 					<groupId>io.quarkus</groupId>
+					<artifactId>quarkus-smallrye-graphql-client</artifactId>
+				</dependency>
+
+				<dependency>
+					<groupId>io.quarkus</groupId>
 					<artifactId>quarkus-jdbc-h2</artifactId>
 				</dependency>
 			</dependencies>
