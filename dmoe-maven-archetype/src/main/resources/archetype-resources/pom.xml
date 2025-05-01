@@ -122,32 +122,6 @@
 		</dependency>
 #end
 
-		<!-- Event Management -->
-		<!--
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-messaging-kafka</artifactId>
-		</dependency>
-		-->				
-
-#if (${useDRL} == 'true')
-		<!--
-		<dependency>
-			<groupId>org.drools</groupId>
-			<artifactId>drools-addons-quarkus-events-rules</artifactId>
-		</dependency>
-		-->				
-#end
-
-#if (${useDMN} == 'true')
-		<!--
-		<dependency>
-			<groupId>org.kie</groupId>
-			<artifactId>kie-addons-quarkus-events-decisions</artifactId>
-		</dependency>		
-		-->				
-#end
-
 		<!-- Testing -->
 		<dependency>
 			<groupId>io.quarkus</groupId>
@@ -189,31 +163,11 @@
 			<artifactId>drools-decisions-spring-boot-starter</artifactId>
 		</dependency>
 #end
-
 #if (${useDRL} == 'true')		
 		<dependency>
 			<groupId>org.drools</groupId>
 			<artifactId>drools-rules-spring-boot-starter</artifactId>
 		</dependency>
-#end
-
-		<!-- Event Management -->
-#if (${useDRL} == 'true')		
-		<!--
-		<dependency>
-			<groupId>org.drools</groupId>
-			<artifactId>drools-addons-springboot-events-rules</artifactId>
-    	</dependency>
-		-->		
-#end
-
-#if (${useDMN} == 'true')
-		<!--
-		<dependency>
-      		<groupId>org.kie</groupId>
-      		<artifactId>kie-addons-springboot-events-decisions</artifactId>
-    	</dependency>
-		-->		
 #end
 
 		<!-- Testing -->
@@ -300,7 +254,7 @@
 						</goals>
 						<configuration>
 							<target>
-                				<copy overwrite="true" todir="./docker-compose/svg">
+                				<copy includeEmptyDirs="true" overwrite="true" failonerror="false" quiet="true" todir="./docker-compose/svg">
 									<fileset dir="target/classes/META-INF/processSVG/"/>
 								</copy>
 							</target>
@@ -346,7 +300,7 @@
 						</goals>
 						<configuration>
 							<target>
-                				<copy overwrite="true" todir="./docker-compose/svg">
+                				<copy includeEmptyDirs="true" overwrite="true" failonerror="false" quiet="true" todir="./docker-compose/svg">
 									<fileset dir="target/classes/META-INF/processSVG/"/>
 								</copy>
 							</target>

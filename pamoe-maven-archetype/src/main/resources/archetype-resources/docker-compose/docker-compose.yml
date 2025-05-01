@@ -3,7 +3,6 @@ services:
   ${projectName}:
     container_name: ${projectName}
     image: ${containerImageRegistry}/${containerImageGroup}/${projectName}:${version}
-    profiles: ["example", "container"]
     ports:
       - "${hostPort}:${containerPort}"
     environment:

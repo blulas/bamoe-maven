@@ -316,7 +316,7 @@
 						</goals>
 						<configuration>
 							<target>
-                				<copy overwrite="true" todir="./docker-compose/svg">
+                				<copy includeEmptyDirs="true" overwrite="true" failonerror="false" quiet="true" todir="./docker-compose/svg">
 									<fileset dir="target/classes/META-INF/processSVG/"/>
 								</copy>
 							</target>

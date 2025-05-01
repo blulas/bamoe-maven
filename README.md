@@ -20,6 +20,13 @@ Once the archetype has been built and installed into the enterprise artifact rep
 - **legacy-decision.sh <projectName>** - Generates a v8 (legacy) decisions KJAR project.
 - **legacy-process.sh <projectName>** - Generates a v8 (legacy) process KJAR project.
 
+
+> [!IMPORTANT]  
+> Do not create a new project in the same working directory as the `bamoe-maven` repository was cloned into.  This will result in an incorrect Maven project file being generated.  Always create a separate folder to hold your BAMOE Maven projects!
+
+> [!TIP]
+> Using **Quarkus** is highly recommended over **Spring Boot**.  It is important to remember that you are not going to be writing Quarkus or Spring Boot code necessarily, you will simply be using the Quarkus or Spring Boot based runtime and supporting extensions/tools.  There is better support using Quarkus than Spring Boot, including the ability to generate Kubernetes container images directly from your Maven build process (CI/CD).  Furthermore, if deploying to Red Hat OpenShift, you can take advantage of the Red Hat build of Quarkus, and thus get enterprise support for Quarkus vs community support for Spring Boot.
+
 ## Repository Modules
 This is a multi-module repository, with the following modules:
 
